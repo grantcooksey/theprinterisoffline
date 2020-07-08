@@ -7,15 +7,14 @@ import TaskBar from '../taskbar';
 
 const ResetStyles = createGlobalStyle`
   ${reset}
+  body {
+      overflow: hidden;
+  }
 `;
 
 const AppStyle = styled.div`
     background-color: rgb(17, 128, 128);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 `;
 
 function App() {
@@ -26,7 +25,6 @@ function App() {
                 <AppStyle>
                     <Desktop />
                     <TaskBar />
-                    <div>tests</div>
                 </AppStyle>
             </ThemeProvider>
         </div>
