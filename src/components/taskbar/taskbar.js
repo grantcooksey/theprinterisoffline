@@ -1,6 +1,6 @@
 import React from 'react';
 import { Bar, AppBar, Toolbar, Button, List, ListItem, Divider } from 'react95';
-import icons from '@react95/icons'
+import icons from '@react95/icons';
 
 const appBarStyle = {
     top: "auto",
