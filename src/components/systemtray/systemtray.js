@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Cutout, Button } from 'react95';
+import { Cutout, Button, Window, WindowHeader, WindowContent } from 'react95';
 import icons from '@react95/icons';
 
 const clockConfig = {
@@ -19,14 +19,32 @@ const SystemTrayStyle = styled.div`
 
 const SystemTrayItem = styled.div`
     padding: 0px 5px;
+    position: relative;
 `;
 
 const TrayIcon = styled.img`
     height: 85%;
 `;
 
+const AlertIcon = styled.img`
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50%;
+`;
+
 function SystemTray() {
     const [currentDate, setDate] = useState(new Date());
+
+    const [open, setOpen] = useState(false);
+
+    function handleClick() {
+        setOpen(!open);
+    }
+
+    function handleClose() {
+        setOpen(false);
+    }
 
     useEffect(() => {
       const interval = setInterval(() => {
@@ -37,6 +55,7 @@ function SystemTray() {
         clearInterval(interval);
       };
     }, []);
+
     return (
         <Cutout style={{ "height": "35px" }}>
             <SystemTrayStyle>
@@ -44,8 +63,28 @@ function SystemTray() {
                     <p>{ currentDate.toLocaleTimeString([], clockConfig) }</p>
                 </SystemTrayItem>
                 <SystemTrayItem>
-                    <Button variant="menu" style={{ "height": "100%" }}>
+                    {open && (
+                    <Window style={{ width: 250, position: "absolute", right: "0", transform: "translate(0, -100%)"}}>
+                        <WindowHeader
+                            style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            }}
+                        >
+                            <span>The Printer</span>
+                            <Button style={{ marginRight: '-6px', marginTop: '1px' }} size={'sm'} onClick={handleClose} square>
+                                <span style={{ fontWeight: 'bold', transform: 'translateY(-1px)' }}>x</span>
+                            </Button>
+                        </WindowHeader>
+                        <WindowContent>
+                            <p>You have a print job pending!</p>
+                        </WindowContent>
+                    </Window>
+                    )}
+                    <Button variant="menu" style={{ "height": "100%", "position": "relative" }} active={open} onClick={handleClick}>
                         <TrayIcon src={ icons.print } alt="printer"></TrayIcon>
+                        <AlertIcon src={ icons.warning } alt="warning"></AlertIcon>
                     </Button>
                 </SystemTrayItem>
             </SystemTrayStyle>
