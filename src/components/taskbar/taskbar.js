@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Bar, AppBar, Toolbar, Button } from 'react95';
+import { Bar, AppBar, Toolbar } from 'react95';
 import Menu from '../menu';
 import SystemTray from '../systemtray';
 
@@ -19,9 +19,6 @@ function TaskBar() {
             <Toolbar style={{ "justifyContent": "space-between" }}>
                 <ApplicationsStyle>
                     <Menu />
-                    <Bar />
-                    <Button variant="menu">Edit</Button>
-                    <Button variant="menu" disabled>Save</Button>
                     <Bar />
                 </ApplicationsStyle>
                 <SystemTray />
