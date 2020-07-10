@@ -11,7 +11,7 @@ const clockConfig = {
 
 const SystemTrayStyle = styled.div`
     display: flex;
-    padding: 0px 15px 0px 5px;
+    padding: 0px 10px 0px 0px;
     height: 100%;
     line-height: 27px;
     flex-direction: row-reverse;
@@ -64,12 +64,13 @@ function SystemTray() {
                 </SystemTrayItem>
                 <SystemTrayItem>
                     {open && (
-                    <Window style={{ width: 300, position: "absolute", right: "0", transform: "translate(0, -100%)"}}>
+                    <Window style={{ width: "min(70vw, 300px)", position: "absolute", right: "0", transform: "translate(0, -100%)"}}>
                         <WindowHeader
                             style={{
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'space-between',
+                            height: "auto"
                             }}
                         >
                             <span>A Message From The Printer</span>
