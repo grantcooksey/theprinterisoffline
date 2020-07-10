@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/theprinterisoffline/precache-manifest.d58151c9c9f94ee28c0516efac32a90a.js"
+  "/theprinterisoffline/precache-manifest.3a6ce1a22f8ebb13ed8c07ff862d5a1c.js"
 );
 
 self.addEventListener('message', (event) => {
