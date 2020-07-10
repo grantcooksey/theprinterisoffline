@@ -64,7 +64,7 @@ function SystemTray() {
                 </SystemTrayItem>
                 <SystemTrayItem>
                     {open && (
-                    <Window style={{ width: 250, position: "absolute", right: "0", transform: "translate(0, -100%)"}}>
+                    <Window style={{ width: 300, position: "absolute", right: "0", transform: "translate(0, -100%)"}}>
                         <WindowHeader
                             style={{
                             display: 'flex',
@@ -72,13 +72,14 @@ function SystemTray() {
                             justifyContent: 'space-between',
                             }}
                         >
-                            <span>The Printer</span>
+                            <span>A Message From The Printer</span>
                             <Button style={{ marginRight: '-6px', marginTop: '1px' }} size={'sm'} onClick={handleClose} square>
                                 <span style={{ fontWeight: 'bold', transform: 'translateY(-1px)' }}>x</span>
                             </Button>
                         </WindowHeader>
                         <WindowContent>
                             <p>You have a print job pending!</p>
+                            <p>The printer appears to be offline...</p>
                         </WindowContent>
                     </Window>
                     )}

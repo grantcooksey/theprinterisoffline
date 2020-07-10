@@ -6,10 +6,17 @@ import Desktop from '../desktop';
 import TaskBar from '../taskbar';
 
 const ResetStyles = createGlobalStyle`
-  ${reset}
-  body {
-      overflow: hidden;
-  }
+    ${reset}
+    body {
+        overflow: hidden;
+    }
+
+    /* HACK I can't figure out how to target clippy */
+    .clippy {
+        position: absolute;
+        top: 200px !important;
+        right: 80px !important;
+    }
 `;
 
 const AppStyle = styled.div`
