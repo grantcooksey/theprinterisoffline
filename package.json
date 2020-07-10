@@ -1,7 +1,7 @@
 {
   "name": "printerisoffline",
   "version": "0.1.0",
-  "homepage": "https://grantcooksey.github.io/theprinterisoffline",
+  "homepage": "https://theprinterisoffline.com",
   "private": true,
   "dependencies": {
     "@react95/clippy": "^0.1.1",
